@@ -1,8 +1,13 @@
 import '@/assets/styles/globals.scss';
+import { Layout } from '@/components/layout';
 import type { AppProps } from 'next/app';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 };
 
 export default App;

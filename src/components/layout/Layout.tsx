@@ -1,7 +1,14 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
+import { Footer } from './footer';
+import styles from './Layout.module.scss';
 
-const Layout: FC = () => {
-  return <div>Layout</div>;
+const Layout: FC<PropsWithChildren> = ({ children }) => {
+  return (
+    <div>
+      <div>{children}</div>
+      <Footer />
+    </div>
+  );
 };
 
 export default Layout;
