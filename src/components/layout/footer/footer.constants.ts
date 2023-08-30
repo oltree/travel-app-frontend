@@ -1,4 +1,9 @@
-export const routes: Record<string, string>[] = [
+interface Route {
+  icon: string;
+  link: string;
+}
+
+export const routes: Route[] = [
   {
     icon: 'home',
     link: '/',
