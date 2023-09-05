@@ -1,5 +1,6 @@
 import { Home } from '@/components/screen/home';
-import { IPlace } from '@/types/place';
+import { API_URL } from '@/shared/constants/api';
+import { IPlace } from '@/shared/types/place';
 import { GetStaticProps, NextPage } from 'next';
 
 export interface HomeProps {
@@ -9,7 +10,7 @@ export interface HomeProps {
 const HomePage: NextPage<HomeProps> = ({ places }) => <Home places={places} />;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch('http://localhost:3000/api/places');
+  const response = await fetch(`${API_URL}/places`);
   const places = await response.json();
 
   return {
