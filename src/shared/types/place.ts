@@ -1,8 +1,13 @@
+type LocationType = {
+  city: string;
+  country: string;
+};
+
 export interface IPlace {
   slug: string;
   description: string;
   imagePath: string;
-  location: string;
+  location: LocationType;
   rating: number;
   duration: string;
   distance: number;
