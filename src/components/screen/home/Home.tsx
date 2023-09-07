@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import styles from './Home.module.scss';
 import { IPlace } from '@/shared/types/place';
 import { Filter } from '@/components/ui/Filter';
@@ -7,18 +7,28 @@ import { HeadingSection } from './HeadingSection';
 import { PopularPlaces } from './PopularPlaces';
 
 interface HomeProps {
-  places: IPlace[];
+  initialPlaces: IPlace[];
 }
 
-const Home: FC<HomeProps> = ({ places }) => {
+const Home: FC<HomeProps> = ({ initialPlaces }) => {
+  const [places, setPlaces] = useState(initialPlaces);
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <div className={styles.container}>
       <HeadingSection />
 
       <div style={{ width: '80%', margin: '0 auto' }}>
-        <Search />
-        <Filter />
-        <PopularPlaces places={places} />
+        <Search
+          initialPlaces={initialPlaces}
+          setPlaces={setPlaces}
+          setIsLoading={setIsLoading}
+        />
+        <Filter setPlaces={setPlaces} />
+        <PopularPlaces
+          places={places}
+          isLoading={isLoading}
+        />
       </div>
     </div>
   );

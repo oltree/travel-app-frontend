@@ -4,8 +4,9 @@ import styles from './Layout.module.scss';
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div>{children}</div>
+
       <Footer />
     </div>
   );
