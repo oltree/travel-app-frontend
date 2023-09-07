@@ -4,18 +4,18 @@ import { IPlace } from '@/shared/types/place';
 import { GetStaticProps, NextPage } from 'next';
 
 export interface HomeProps {
-  places: IPlace[];
+  initialPlaces: IPlace[];
 }
 
-const HomePage: NextPage<HomeProps> = ({ places }) => <Home places={places} />;
+const HomePage: NextPage<HomeProps> = ({ initialPlaces }) => <Home initialPlaces={initialPlaces} />;
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch(`${API_URL}/places`);
-  const places = await response.json();
+  const initialPlaces = await response.json();
 
   return {
     props: {
-      places,
+      initialPlaces,
     },
   };
 };
