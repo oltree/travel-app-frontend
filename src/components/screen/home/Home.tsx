@@ -24,7 +24,10 @@ const Home: FC<HomeProps> = ({ initialPlaces }) => {
           setPlaces={setPlaces}
           setIsLoading={setIsLoading}
         />
-        <Filter setPlaces={setPlaces} />
+        <Filter
+          initialPlaces={initialPlaces}
+          setPlaces={setPlaces}
+        />
         <PopularPlaces
           places={places}
           isLoading={isLoading}

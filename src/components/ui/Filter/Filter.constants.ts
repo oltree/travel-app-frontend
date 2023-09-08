@@ -1,17 +1,17 @@
-import { ICity } from './Filter.types';
+import { ICountry } from './Filter.types';
 
-export const cities: ICity[] = [
+export const countries: ICountry[] = [
   {
-    location: 'Paris',
+    location: 'France',
   },
   {
-    location: 'Bora Bora',
+    location: 'Japan',
   },
   {
-    location: 'Maui',
+    location: 'German',
   },
   {
-    location: 'Tahiti',
+    location: 'USA',
   },
   {
     location: 'Brazil',
