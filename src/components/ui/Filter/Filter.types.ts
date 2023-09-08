@@ -1,3 +1,3 @@
-export interface ICity {
+export interface ICountry {
   location: string;
 }
