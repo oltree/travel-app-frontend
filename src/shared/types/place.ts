@@ -14,3 +14,8 @@ export interface IPlace {
   googleMapLink: string;
   mapImage: string;
 }
+
+export interface IFavoritePlace {
+  slug: string;
+  name: string;
+}

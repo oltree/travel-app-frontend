@@ -15,7 +15,7 @@ const Footer: FC = () => {
             className={pathname === item.link ? styles.active : ''}
             onClick={() => push(item.link)}
           >
-            <span className='material-icons-outlined'>{item.icon}</span>
+            <span className='material-icons'>{item.icon}</span>
           </button>
         ))}
       </nav>
