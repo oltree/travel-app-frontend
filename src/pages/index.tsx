@@ -7,7 +7,9 @@ export interface HomeProps {
   initialPlaces: IPlace[];
 }
 
-const HomePage: NextPage<HomeProps> = ({ initialPlaces }) => <Home initialPlaces={initialPlaces} />;
+const HomePage: NextPage<HomeProps> = ({ initialPlaces }) => (
+  <Home initialPlaces={initialPlaces} />
+);
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch(`${API_URL}/places`);

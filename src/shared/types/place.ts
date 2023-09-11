@@ -1,9 +1,10 @@
-type LocationType = {
+export type LocationType = {
   city: string;
   country: string;
 };
 
 export interface IPlace {
+  _id: string;
   slug: string;
   description: string;
   imagePath: string;
@@ -11,8 +12,6 @@ export interface IPlace {
   rating: number;
   duration: string;
   distance: number;
-  googleMapLink: string;
-  mapImage: string;
 }
 
 export interface IFavoritePlace {

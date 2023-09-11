@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import styles from './Filter.module.scss';
-import { countries } from './Filter.constants';
+import uniqby from 'lodash.uniqby';
 import cn from 'classnames';
 import { IPlace } from '@/shared/types/place';
 import { SetStateType } from '@/shared/types/common';
@@ -20,7 +20,7 @@ const Filter: FC<FilterProps> = ({ initialPlaces, setPlaces }) => {
     } else {
       setPlaces(
         initialPlaces.filter(
-          (place) =>
+          place =>
             place.location.country.toLowerCase() === location.toLowerCase()
         )
       );
@@ -30,17 +30,21 @@ const Filter: FC<FilterProps> = ({ initialPlaces, setPlaces }) => {
 
   return (
     <div className={styles.wrapper}>
-      {countries.map((country) => (
-        <button
-          key={country.location}
-          className={cn({
-            [styles.active]: country.location === filter,
-          })}
-          onClick={() => handleFilter(country.location)}
-        >
-          {country.location}
-        </button>
-      ))}
+      {uniqby(initialPlaces, 'location.country').map(place => {
+        const country = place.location.country;
+
+        return (
+          <button
+            key={place._id}
+            className={cn({
+              [styles.active]: country === filter,
+            })}
+            onClick={() => handleFilter(country)}
+          >
+            {country}
+          </button>
+        );
+      })}
     </div>
   );
 };

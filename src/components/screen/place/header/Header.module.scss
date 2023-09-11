@@ -1,4 +1,6 @@
 @import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+@import '@/assets/styles/animations';
 
 .wrapper {
   display: flex;
@@ -9,24 +11,25 @@
   padding-top: 2rem;
 
   .buttonWrapper {
-    border-radius: 50%;
+    @include glassEffect;
     width: 55px;
     height: 55px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
   }
 
   .bookmark {
     position: relative;
 
     > ul {
+      @include glassEffect;
+      animation: opacity 0.3s;
       position: absolute;
-      background-color: #222223;
+      z-index: 2;
       border-radius: 15px;
       padding: 1rem 0;
-      z-index: 2;
       top: calc(100% + 10px);
       right: 0;
       width: max-content;
@@ -38,10 +41,10 @@
           color: $white;
           display: block;
           padding: 0.5rem 2rem;
-          transition: background-color 0.3s ease-in-out;
+          transition: color 0.2s ease-in-out;
 
           &:hover {
-            background-color: #1c1c1e;
+            color: $accent;
           }
         }
       }
