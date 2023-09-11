@@ -8,14 +8,8 @@ const Header: FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Link
-        href='/'
-        className={styles.buttonWrapper}
-      >
-        <span
-          style={{ color: '#e8e8e8' }}
-          className='material-icons'
-        >
+      <Link href='/' className={styles.buttonWrapper}>
+        <span style={{ color: '#e8e8e8' }} className='material-icons'>
           arrow_back_ios_new
         </span>
       </Link>
@@ -25,10 +19,7 @@ const Header: FC = () => {
           onClick={() => setIsOpen(!isOpen)}
           className={styles.buttonWrapper}
         >
-          <span
-            style={{ color: '#e8e8e8' }}
-            className='material-icons'
-          >
+          <span style={{ color: '#e8e8e8' }} className='material-icons'>
             favorite
           </span>
         </button>

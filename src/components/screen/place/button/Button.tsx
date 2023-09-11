@@ -7,10 +7,7 @@ const Button: FC = () => {
   };
 
   return (
-    <button
-      className={styles.button}
-      onClick={handleClick}
-    >
+    <button className={styles.button} onClick={handleClick}>
       <p className={styles.text}>Book a trip</p>
       <div className={styles.icon}>
         <span className='material-icons'>arrow_forward</span>

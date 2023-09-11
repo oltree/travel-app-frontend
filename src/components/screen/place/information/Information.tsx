@@ -19,27 +19,21 @@ const Information: FC<InformationProps> = ({ place }) => {
 
       <div className={styles.additional}>
         <div className={styles.rating}>
-          <span
-            style={{ color: '#fdae32' }}
-            className='material-icons'
-          >
+          <span style={{ color: '#fdae32' }} className='material-icons'>
             star
           </span>
           <span>{place.rating}/10</span>
         </div>
 
         <div className={styles.duration}>
-          <span
-            style={{ color: '#565658' }}
-            className='material-icons'
-          >
+          <span style={{ color: '#565658' }} className='material-icons'>
             calendar_today
           </span>
           <span>{place.duration}</span>
         </div>
       </div>
 
-      <Map />
+      <Map location={place.location} />
     </div>
   );
 };
