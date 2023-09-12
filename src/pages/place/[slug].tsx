@@ -1,3 +1,4 @@
+import { Meta } from '@/components/meta';
 import { Place } from '@/components/screen/place';
 import { API_URL } from '@/shared/constants/api';
 import { IPlace } from '@/shared/types/place';
@@ -7,13 +8,21 @@ interface PlaceProps {
   place: IPlace;
 }
 
-const PlacePage: NextPage<PlaceProps> = ({ place }) => <Place place={place} />;
+const PlacePage: NextPage<PlaceProps> = ({ place }) => (
+  <Meta
+    title={place.location.country}
+    description={place.description}
+    image={place.imagePath}
+  >
+    <Place place={place} />
+  </Meta>
+);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(`${API_URL}/places`);
   const places: IPlace[] = await response.json();
 
-  const paths = places.map((place) => ({
+  const paths = places.map(place => ({
     params: { slug: place.slug },
   }));
 

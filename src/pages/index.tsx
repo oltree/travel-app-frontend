@@ -1,3 +1,4 @@
+import { Meta } from '@/components/meta';
 import { Home } from '@/components/screen/home';
 import { API_URL } from '@/shared/constants/api';
 import { IPlace } from '@/shared/types/place';
@@ -8,7 +9,9 @@ export interface HomeProps {
 }
 
 const HomePage: NextPage<HomeProps> = ({ initialPlaces }) => (
-  <Home initialPlaces={initialPlaces} />
+  <Meta title='Book your future trip' description='Best routes for travelling'>
+    <Home initialPlaces={initialPlaces} />
+  </Meta>
 );
 
 export const getStaticProps: GetStaticProps = async () => {
