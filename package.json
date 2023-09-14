@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.16.7",
     "@types/classnames": "^2.3.1",
     "@types/node": "20.5.3",
     "@types/react": "18.2.21",
@@ -24,7 +26,9 @@
     "react-dom": "18.2.0",
     "react-loading-skeleton": "^3.3.1",
     "react-simple-maps": "^1.0.0",
+    "sanity": "^3.16.7",
     "sass": "^1.66.1",
+    "styled-components": "5.2",
     "typescript": "5.1.6"
   },
   "devDependencies": {
