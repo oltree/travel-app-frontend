@@ -2,6 +2,7 @@ import { Meta } from '@/components/meta';
 import { Place } from '@/components/screen/place';
 import { API_URL } from '@/shared/constants/api';
 import { IPlace } from '@/shared/types/place';
+import { urlForImage } from '@sanity/lib/image';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 interface PlaceProps {
@@ -12,7 +13,7 @@ const PlacePage: NextPage<PlaceProps> = ({ place }) => (
   <Meta
     title={place.location.country}
     description={place.description}
-    image={place.imagePath}
+    image={urlForImage(place.imagePath).url()}
   >
     <Place place={place} />
   </Meta>
@@ -23,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const places: IPlace[] = await response.json();
 
   const paths = places.map(place => ({
-    params: { slug: place.slug },
+    params: { slug: place.slug.current },
   }));
 
   return { paths, fallback: true };

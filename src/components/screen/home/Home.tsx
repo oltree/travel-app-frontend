@@ -13,6 +13,7 @@ interface HomeProps {
 const Home: FC<HomeProps> = ({ initialPlaces }) => {
   const [places, setPlaces] = useState(initialPlaces);
   const [isLoading, setIsLoading] = useState(false);
+  console.log(initialPlaces);
 
   return (
     <div className={styles.container}>
@@ -24,14 +25,8 @@ const Home: FC<HomeProps> = ({ initialPlaces }) => {
           setPlaces={setPlaces}
           setIsLoading={setIsLoading}
         />
-        <Filter
-          initialPlaces={initialPlaces}
-          setPlaces={setPlaces}
-        />
-        <PopularPlaces
-          places={places}
-          isLoading={isLoading}
-        />
+        <Filter initialPlaces={initialPlaces} setPlaces={setPlaces} />
+        <PopularPlaces places={places} isLoading={isLoading} />
       </div>
     </div>
   );
