@@ -1,5 +1,5 @@
 import { getTotalTitle, siteName } from '@/configs/seo';
-import { getOnlyText } from '@/shared/utils/text/getOnlyText';
+import { getOnlyText } from '@/shared/utils/getOnlyText';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FC, PropsWithChildren } from 'react';
@@ -10,7 +10,7 @@ import { PUBLIC_APP_URL } from '@/shared/constants/env';
 const Meta: FC<PropsWithChildren<IMeta>> = ({
   title,
   description,
-  image = null,
+  image,
   children,
 }) => {
   const { asPath } = useRouter();

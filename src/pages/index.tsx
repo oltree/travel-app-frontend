@@ -1,8 +1,10 @@
 import { Meta } from '@/components/meta';
 import { Home } from '@/components/screen/home';
-import { API_URL } from '@/shared/constants/api';
 import { IPlace } from '@/shared/types/place';
 import { GetStaticProps, NextPage } from 'next';
+import { client } from '../../sanity/lib/client';
+
+const placeQuery = `*[_type == "place"]`;
 
 export interface HomeProps {
   initialPlaces: IPlace[];
@@ -15,12 +17,11 @@ const HomePage: NextPage<HomeProps> = ({ initialPlaces }) => (
 );
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch(`${API_URL}/places`);
-  const initialPlaces = await response.json();
+  const result = await client.fetch(placeQuery);
 
   return {
     props: {
-      initialPlaces,
+      initialPlaces: result,
     },
   };
 };
