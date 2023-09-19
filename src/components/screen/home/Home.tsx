@@ -13,7 +13,6 @@ interface HomeProps {
 const Home: FC<HomeProps> = ({ initialPlaces }) => {
   const [places, setPlaces] = useState(initialPlaces);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(initialPlaces);
 
   return (
     <div className={styles.container}>

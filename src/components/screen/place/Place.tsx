@@ -4,6 +4,7 @@ import { IPlace } from '@/shared/types/place';
 import { Button } from './button';
 import { Information } from './information';
 import { Header } from './header';
+import { urlForImage } from '@sanity/lib/image';
 
 interface PlaceProps {
   place: IPlace;
@@ -12,7 +13,7 @@ interface PlaceProps {
 const Place: FC<PlaceProps> = ({ place }) => {
   return (
     <div
-      style={{ backgroundImage: `url(${place.imagePath})` }}
+      style={{ backgroundImage: `url(${urlForImage(place.imagePath).url()})` }}
       className={styles.wrapper}
     >
       <Header />
