@@ -1,4 +1,5 @@
 import type { Image } from 'sanity';
+import type { ArbitraryTypedObject } from '@portabletext/types';
 
 export type LocationType = {
   city: string;
@@ -12,7 +13,7 @@ export type SlugType = {
 export interface IPlace {
   _id: string;
   slug: SlugType;
-  description: string;
+  description: ArbitraryTypedObject[];
   imagePath: Image;
   location: LocationType;
   rating: number;

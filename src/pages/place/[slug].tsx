@@ -1,9 +1,11 @@
 import { Meta } from '@/components/meta';
 import { Place } from '@/components/screen/place';
-import { API_URL } from '@/shared/constants/api';
+import { getPlaceQuery, placesQuery } from '@/shared/constants/queries';
 import { IPlace } from '@/shared/types/place';
+import { client } from '@sanity/lib/client';
 import { urlForImage } from '@sanity/lib/image';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { toPlainText } from '@portabletext/react';
 
 interface PlaceProps {
   place: IPlace;
@@ -12,7 +14,7 @@ interface PlaceProps {
 const PlacePage: NextPage<PlaceProps> = ({ place }) => (
   <Meta
     title={place.location.country}
-    description={place.description}
+    description={toPlainText(place.description)}
     image={urlForImage(place.imagePath).url()}
   >
     <Place place={place} />
@@ -20,19 +22,17 @@ const PlacePage: NextPage<PlaceProps> = ({ place }) => (
 );
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(`${API_URL}/places`);
-  const places: IPlace[] = await response.json();
+  const places: IPlace[] = await client.fetch(`${placesQuery}{slug}`);
 
   const paths = places.map(place => ({
     params: { slug: place.slug.current },
   }));
 
-  return { paths, fallback: true };
+  return { paths, fallback: 'blocking' };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const response = await fetch(`${API_URL}/places/${params?.slug}`);
-  const place = await response.json();
+  const place: IPlace = await client.fetch(getPlaceQuery(String(params?.slug)));
 
   return { props: { place } };
 };

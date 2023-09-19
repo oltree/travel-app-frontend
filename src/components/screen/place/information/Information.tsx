@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styles from './Information.module.scss';
 import { IPlace } from '@/shared/types/place';
 import Map from './Map';
+import { toPlainText } from '@portabletext/react';
 
 interface InformationProps {
   place: IPlace;
@@ -15,7 +16,7 @@ const Information: FC<InformationProps> = ({ place }) => {
         <h1>{place.location.city + ', ' + place.location.country}</h1>
       </div>
 
-      <p>{place.description}</p>
+      <p>{toPlainText(place.description)}</p>
 
       <div className={styles.additional}>
         <div className={styles.rating}>
