@@ -1,10 +1,13 @@
 import { FC } from 'react';
-import styles from './Place.module.scss';
+import { urlForImage } from '@sanity/lib/image';
+
 import { IPlace } from '@/shared/types/place';
+
 import { Button } from './button';
 import { Information } from './information';
 import { Header } from './header';
-import { urlForImage } from '@sanity/lib/image';
+
+import styles from './Place.module.scss';
 
 interface PlaceProps {
   place: IPlace;

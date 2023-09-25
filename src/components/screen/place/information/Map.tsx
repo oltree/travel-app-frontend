@@ -1,4 +1,3 @@
-import { LocationType } from '@/shared/types/place';
 import { FC } from 'react';
 import {
   ComposableMap,
@@ -6,6 +5,9 @@ import {
   Geography,
   ZoomableGroup,
 } from 'react-simple-maps';
+
+import { LocationType } from '@/shared/types/place';
+
 import styles from './Information.module.scss';
 interface MapProps {
   location: LocationType;

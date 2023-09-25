@@ -1,7 +1,9 @@
-import '@/assets/styles/globals.scss';
-import { Layout } from '@/components/layout';
 import type { AppProps } from 'next/app';
 import NextProgressBar from 'nextjs-progressbar';
+
+import { Layout } from '@/components/layout';
+
+import '@/assets/styles/globals.scss';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

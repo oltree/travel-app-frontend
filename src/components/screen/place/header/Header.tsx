@@ -1,7 +1,9 @@
 import { FC, useState } from 'react';
-import styles from './Header.module.scss';
 import Link from 'next/link';
+
 import { faroritesPlaces } from './Header.constants';
+
+import styles from './Header.module.scss';
 
 const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,5 +1,7 @@
 import { FC } from 'react';
+
 import styles from './HeadingSection.module.scss';
+
 import map from '@/assets/images/map.png';
 
 const HeadingSection: FC = () => {

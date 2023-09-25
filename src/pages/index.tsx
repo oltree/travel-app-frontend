@@ -1,8 +1,10 @@
-import { Meta } from '@/components/meta';
-import { Home } from '@/components/screen/home';
-import { IPlace } from '@/shared/types/place';
 import { GetStaticProps, NextPage } from 'next';
 import { client } from '@sanity/lib/client';
+
+import { Meta } from '@/components/meta';
+import { Home } from '@/components/screen/home';
+
+import { IPlace } from '@/shared/types/place';
 import { placesQuery } from '@/shared/constants/queries';
 
 export interface HomeProps {

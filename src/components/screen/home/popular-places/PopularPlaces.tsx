@@ -1,10 +1,14 @@
 import { FC } from 'react';
-import styles from './PolularPlaces.module.scss';
-import { IPlace } from '@/shared/types/place';
 import Link from 'next/link';
 import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+
 import { urlForImage } from '@sanity/lib/image';
+
+import { IPlace } from '@/shared/types/place';
+
+import styles from './PolularPlaces.module.scss';
+
+import 'react-loading-skeleton/dist/skeleton.css';
 
 interface PopularPlacesProps {
   places: IPlace[];

@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+
 import { places } from './index';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

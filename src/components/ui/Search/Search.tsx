@@ -1,7 +1,9 @@
 import { ChangeEvent, FC, useState } from 'react';
-import styles from './Search.module.scss';
+
 import { IPlace } from '@/shared/types/place';
 import { SetStateType } from '@/shared/types/common';
+
+import styles from './Search.module.scss';
 
 interface SearchProps {
   initialPlaces: IPlace[];
@@ -26,7 +28,7 @@ const Search: FC<SearchProps> = ({
       if (value) {
         setPlaces(
           initialPlaces.filter(
-            (place) =>
+            place =>
               place.location.city.toLowerCase().includes(value) ||
               place.location.country.toLowerCase().includes(value)
           )
