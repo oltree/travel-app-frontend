@@ -1,8 +1,10 @@
 import { FC } from 'react';
-import styles from './Information.module.scss';
-import { IPlace } from '@/shared/types/place';
-import Map from './Map';
 import { toPlainText } from '@portabletext/react';
+import { IPlace } from '@/shared/types/place';
+
+import Map from './Map';
+
+import styles from './Information.module.scss';
 
 interface InformationProps {
   place: IPlace;

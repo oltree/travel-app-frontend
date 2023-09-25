@@ -1,9 +1,11 @@
 import { FC, useState } from 'react';
-import styles from './Filter.module.scss';
 import uniqby from 'lodash.uniqby';
 import cn from 'classnames';
+
 import { IPlace } from '@/shared/types/place';
 import { SetStateType } from '@/shared/types/common';
+
+import styles from './Filter.module.scss';
 
 interface FilterProps {
   initialPlaces: IPlace[];

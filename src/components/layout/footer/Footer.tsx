@@ -1,6 +1,8 @@
 import { FC } from 'react';
-import styles from './Footer.module.scss';
 import { useRouter } from 'next/router';
+
+import styles from './Footer.module.scss';
+
 import { routes } from './footer.constants';
 
 const Footer: FC = () => {
@@ -9,7 +11,7 @@ const Footer: FC = () => {
   return (
     <footer className={styles.footer}>
       <nav>
-        {routes.map((item) => (
+        {routes.map(item => (
           <button
             key={item.icon}
             className={pathname === item.link ? styles.active : ''}

@@ -1,11 +1,13 @@
-import { Meta } from '@/components/meta';
-import { Place } from '@/components/screen/place';
-import { getPlaceQuery, placesQuery } from '@/shared/constants/queries';
-import { IPlace } from '@/shared/types/place';
 import { client } from '@sanity/lib/client';
 import { urlForImage } from '@sanity/lib/image';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { toPlainText } from '@portabletext/react';
+
+import { Meta } from '@/components/meta';
+import { Place } from '@/components/screen/place';
+
+import { getPlaceQuery, placesQuery } from '@/shared/constants/queries';
+import { IPlace } from '@/shared/types/place';
 
 interface PlaceProps {
   place: IPlace;

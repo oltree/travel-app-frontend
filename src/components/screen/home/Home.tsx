@@ -1,10 +1,13 @@
 import { FC, useState } from 'react';
-import styles from './Home.module.scss';
+
 import { IPlace } from '@/shared/types/place';
 import { Filter } from '@/components/ui/filter';
 import { Search } from '@/components/ui/search';
+
 import { HeadingSection } from './heading-section';
 import { PopularPlaces } from './popular-places';
+
+import styles from './Home.module.scss';
 
 interface HomeProps {
   initialPlaces: IPlace[];

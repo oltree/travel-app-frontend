@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+
 import { IPlace } from '@/shared/types/place';
 
 export const places: IPlace[] = [
